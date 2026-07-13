@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v4="http://fs.gov.cz/eet/schema/v4">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <v4:Odpoved>
+      <v4:Hlavicka uuid_zpravy="03965780-6457-4842-bd80-5f9195c0b8c8" dat_odmit="2026-07-01T09:02:20Z"/>
+      <v4:Chyba kod="3">Neplatna hodnota v polozce Data: celk_trzba nesmi byt 0</v4:Chyba>
+    </v4:Odpoved>
+  </soapenv:Body>
+</soapenv:Envelope>

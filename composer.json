@@ -1,0 +1,43 @@
+{
+    "name": "hypertractor/laravel-eet",
+    "description": "Laravel package for Czech EET 2.0 electronic sales registration — SOAP signing, PKP/BKP generation, and certificate management",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^12.0",
+        "illuminate/database": "^12.0",
+        "illuminate/http": "^12.0",
+        "illuminate/events": "^12.0",
+        "illuminate/filesystem": "^12.0",
+        "guzzlehttp/guzzle": "^7.10",
+        "firebase/php-jwt": "^6.10 || ^7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5",
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pomocnik\\Eet\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pomocnik\\Eet\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pomocnik\\Eet\\EetClientServiceProvider"
+            ],
+            "aliases": {
+                "Eet": "Pomocnik\\Eet\\Facades\\Eet"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
