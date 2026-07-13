@@ -70,6 +70,25 @@ class SoapResponse
             $errorCode = (int) $chyba->getAttribute('kod');
             $errorMessage = $chyba->textContent;
 
+            // EET error code 0 = "zprava zpracovana v overovacim modu" = uspech
+            if ($errorCode === 0) {
+                // Zkusit najit Varovani jako test FIK code
+                $varovani = $xpath->query('.//v4:Varovani', $odpoved)->item(0)
+                    ?? $xpath->query('.//*[local-name()="Varovani"]', $odpoved)->item(0);
+
+                $warningCode = $varovani ? $varovani->getAttribute('kod_varov') : null;
+
+                return new self(
+                    success: true,
+                    fikCode: null,
+                    testFikCode: $chyba->getAttribute('test') ?: null,
+                    errorCode: 0,
+                    errorMessage: trim($errorMessage),
+                    warningCode: $warningCode,
+                    rawXml: $xml,
+                );
+            }
+
             return new self(
                 success: false,
                 errorCode: $errorCode,

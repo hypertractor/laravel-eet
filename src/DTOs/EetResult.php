@@ -17,7 +17,7 @@ class EetResult
         public readonly ?string $uuidZpravy = null,
     ) {}
 
-    public static function success(string $fikCode, ?string $testFikCode, ?string $bkpCode, ?string $pkpCode, string $uuidZpravy): self
+    public static function success(?string $fikCode, ?string $testFikCode, ?string $bkpCode, ?string $pkpCode, string $uuidZpravy): self
     {
         return new self(
             success: true,
