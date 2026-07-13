@@ -10,6 +10,7 @@ class EetSubmission extends Model
 
     protected $fillable = [
         'receipt_id',
+        'customer_invoice_id',
         'uuid_zpravy',
         'fik_code',
         'bkp_code',
@@ -34,5 +35,10 @@ class EetSubmission extends Model
     public function receipt()
     {
         return $this->belongsTo(\App\Models\App\Receipt::class);
+    }
+
+    public function customerInvoice()
+    {
+        return $this->belongsTo(\App\Models\App\CustomerInvoice::class);
     }
 }
